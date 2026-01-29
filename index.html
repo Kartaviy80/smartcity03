@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Смарт Сіті Дніпро - Цифрове майбутнє міста</title>
+  <meta name="description" content="Офіційний портал цифрових послуг Дніпровської міської ради. Всі сервіси в одному місці.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+     :root {
+      --bg: #020617;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.5);
+      --cyan: #22d3ee;
+      --blue: #3b82f6;
+      --purple: #a855f7;
+    }
+    
+    body {
+      font-family: DniproCity-Bold;
+      background: linear-gradient(to bottom right, #0d214f, #78818d, #e0cfb1);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+	
+    a { color: inherit; text-decoration: none; }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* Animated Background */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .glow-orb-1 {
+      top: -10%;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(34, 211, 238, 0.15);
+    }
+    
+    .glow-orb-2 {
+      bottom: -10%;
+      right: 20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(168, 85, 247, 0.15);
+      animation-delay: 1s;
+    }
+    
+    .glow-orb-3 {
+      top: 40%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: rgba(59, 130, 246, 0.08);
+      animation-delay: 2s;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 0;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: var(--cyan);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3.5rem; }
+    }
+    
+    .hero-title-light {
+      background: linear-gradient(to right, #fff, rgba(255,255,255,0.5));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-title-gradient {
+      background: linear-gradient(to right, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-description {
+      font-size: 1.125rem;
+      color: linear-gradient(to right, #0f172a, #475569);
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 12px 32px rgba(34, 211, 238, 0.3);
+      transform: translateY(-2px) scale(1.02);
+    }
+    
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .stat-item:nth-child(1) { animation-delay: 0s; }
+    .stat-item:nth-child(2) { animation-delay: 0.1s; }
+    .stat-item:nth-child(3) { animation-delay: 0.2s; }
+    .stat-item:nth-child(4) { animation-delay: 0.3s; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .stat-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+    }
+    
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    /* Main Content */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 5rem;
+    }
+    
+    /* Search */
+    .search-container {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+    
+    .search-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(34, 211, 238, 0.2), rgba(168, 85, 247, 0.2));
+      border-radius: 16px;
+      filter: blur(20px);
+    }
+    
+    .search-input-wrap {
+      position: relative;
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+    
+    .search-input {
+      width: 100%;
+      height: 56px;
+      padding: 0 1.5rem 0 3.5rem;
+      border-radius: 16px;
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      color: black;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .search-input::placeholder { color: var(--text-muted); }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: rgba(34, 211, 238, 0.5);
+      box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+    }
+    
+    /* Section Title */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title-bar {
+      width: 4px;
+      height: 32px;
+      border-radius: 4px;
+    }
+    
+    .section-title-bar.cyan { background: linear-gradient(to bottom, var(--cyan), var(--blue)); }
+    .section-title-bar.purple { background: linear-gradient(to bottom, var(--purple), #ec4899); }
+    
+    /* Categories */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (min-width: 640px) {
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (min-width: 1024px) {
+      .category-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: left;
+    }
+    
+    .category-card:hover, .category-card.active {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-4px);
+    }
+    
+    .category-glow {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.2;
+    }
+    
+    .category-glow.cyan { background: var(--cyan); }
+    .category-glow.blue { background: var(--blue); }
+    .category-glow.emerald { background: #10b981; }
+    .category-glow.orange { background: #f59e0b; }
+    .category-glow.violet { background: var(--purple); }
+	.category-glow.red { background: #ef4444; }
+	.category-glow.amber { background: #f59e0b; }
+	.category-glow.teal { background: #14b8a6; }
+	.category-glow.emerald { background: #10b981; }
+	.category-glow.gray { background: #6b7280; }
+    
+    .category-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .category-icon.cyan { background: linear-gradient(135deg, var(--cyan), var(--blue)); }
+    .category-icon.blue { background: linear-gradient(135deg, var(--blue), #6366f1); }
+    .category-icon.emerald { background: linear-gradient(135deg, #10b981, #14b8a6); }
+    .category-icon.orange { background: linear-gradient(135deg, #f59e0b, #fb923c); }
+    .category-icon.violet { background: linear-gradient(135deg, #8b5cf6, #a855f7); }
+    .category-icon.red { 
+	background: linear-gradient(135deg, #ef4444, #dc2626); 
+	box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+	}
+	.category-icon.amber { 
+	background: linear-gradient(135deg, #f59e0b, #d97706); 
+	box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+	}
+	.category-icon.teal { 
+	background: linear-gradient(135deg, #14b8a6, #0d9488); 
+	box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
+	}
+	.category-icon.emerald { 
+	background: linear-gradient(135deg, #10b981, #059669); 
+	box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+	}
+	.category-icon.gray { 
+	  background: linear-gradient(135deg, #6b7280, #4b5563); 
+	  box-shadow: 0 8px 24px rgba(107, 114, 128, 0.4);
+	}
+
+
+    .category-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .category-count { font-size: 0.75rem; color: var(--text-muted); }
+    .category-arrow { position: absolute; bottom: 1.5rem; right: 1.5rem; color: rgba(255,255,255,0.3); }
+    
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1280px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+    
+    .service-card {
+      padding: 1.25rem;
+      border-radius: 12px;
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(34, 211, 238, 0.3);
+      box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+    }
+    
+    .service-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .service-title { font-weight: 600; margin-bottom: 0.25rem; }
+    .service-description { font-size: 0.875rem; color: var(--text-muted); }
+    .service-arrow { color: rgba(255,255,255,0.2); flex-shrink: 0; }
+    .service-card:hover .service-title { color: var(--cyan); }
+    .service-card:hover .service-arrow { color: var(--cyan); }
+
+    .platforms-list { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .platform-badge { font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px; background: rgba(255,255,255,0.1); color: var(--text-muted); }
+    
+    /* Footer */
+    footer {
+      position: relative;
+      background: linear-gradient(to bottom, #0f172a, #020617);
+      color: #fff;
+      overflow: hidden;
+    }
+    
+    .footer-blur-1 {
+      position: absolute;
+      top: 0; left: 25%;
+      width: 300px; height: 300px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+    
+    .footer-blur-2 {
+      position: absolute;
+      bottom: 0; right: 25%;
+      width: 200px; height: 200px;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    
+    .footer-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #3b82f6, #fbbf24, #3b82f6);
+    }
+    
+    .footer-content {
+      position: relative;
+      z-index: 10;
+      padding: 3rem 0;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-logo-icon {
+      width: 40px; height: 40px;
+      border: 2px solid #fff;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .footer-logo-text { font-size: 1.5rem; font-weight: 700; }
+    
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    
+    .footer-section h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    
+    .footer-phones {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-phones a {
+      transition: color 0.3s;
+    }
+    
+    .footer-phones a:hover { color: #fbbf24; }
+    
+    .footer-phones .separator {
+      margin: 0 0.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    
+    .footer-email {
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-email:hover { color: #fbbf24; }
+    
+    .footer-contacts { text-align: right; }
+    
+    @media (max-width: 768px) {
+      .footer-contacts { text-align: left; }
+    }
+    
+    .footer-address {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    
+    .footer-contact-emails {
+      margin-bottom: 1rem;
+    }
+    
+    .footer-contact-emails a {
+      display: block;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+      margin-bottom: 0.25rem;
+    }
+    
+    .footer-contact-emails a:hover { color: #fbbf24; }
+    
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+    }
+	
+	@font-face {
+  font-family: 'DniproCity-Bold';
+  src: url('fonts/DniproCity-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+  </style>
+</head>
+<body>
+  <div class="bg-glow">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge"><a href="https://drive.google.com/file/d/1Dq7AUKd7aO9ad3QgfBeQcEyjT5ynPU6z/view?usp=sharing">Про Дніпро</a></div>
+          <h2 class="hero-title">
+            <span class="hero-title-light">Дніпро</span><br>
+            <span class="hero-title-gradient">СМАРТ СІТІ</span>
+          </h2>
+          <p class="hero-description">Платформа міських сервісів для взаємодії з громадою</p>
+          
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div><div class="stat-value" id="stat-services">35</div><div class="stat-label">Сервісів</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div><div class="stat-value">1M+</div><div class="stat-label">Користувачів</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            </div>
+            <div><div class="stat-value">24/7</div><div class="stat-label">Підтримка</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div><div class="stat-value">5</div><div class="stat-label">Категорій</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="search-container">
+        <div class="search-glow"></div>
+        <div class="search-input-wrap">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Пошук...">
+        </div>
+      </div>
+
+            <div id="home-view">
+        <!-- КАТЕГОРИИ (всегда видны) -->
+        <h3 class="section-title">
+          <span class="section-title-bar cyan"></span>
+          Категорії послуг
+        </h3>
+        <div class="category-grid" id="category-container">
+		
+		  <div onclick="setCategory('services')" class="category-card" id="cat-services">
+            <div class="category-glow blue"></div>
+            <div class="category-icon blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h4 class="category-title">Послуги</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+          <div onclick="setCategory('education')" class="category-card" id="cat-education">
+            <div class="category-glow cyan"></div>
+            <div class="category-icon cyan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h4 class="category-title">Освіта та навчання</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          
+          <div onclick="setCategory('medicine')" class="category-card" id="cat-medicine">
+            <div class="category-glow emerald"></div>
+            <div class="category-icon emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h4 class="category-title">Медицина</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div onclick="setCategory('transport')" class="category-card" id="cat-transport">
+            <div class="category-glow orange"></div>
+            <div class="category-icon orange">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <h4 class="category-title">Транспорт</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div onclick="setCategory('war')" class="category-card" id="cat-other">
+            <div class="category-glow red"></div>
+            <div class="category-icon red">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 	   stroke-linejoin="round">
+				<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+			  </svg>
+            </div>
+			
+            <h4 class="category-title">Підтримка під час війни</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+		  <div onclick="setCategory('pamat')" class="category-card" id="cat-other">
+            <div class="category-glow emerald"></div>
+            <div class="category-icon emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+    <path d="M9 10h6"/>
+    <path d="M9 14h6"/>
+  </svg>
+            </div>
+            <h4 class="category-title">Пам'ять</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+		  <div onclick="setCategory('cult')" class="category-card" id="cat-other">
+            <div class="category-glow violet"></div>
+            <div class="category-icon violet">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="13.5" cy="6.5" r=".5"/>
+    <circle cx="17.5" cy="10.5" r=".5"/>
+    <circle cx="8.5" cy="7.5" r=".5"/>
+    <circle cx="6.5" cy="12.5" r=".5"/>
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+  </svg>
+            </div>
+            <h4 class="category-title">Культура</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+		  <div onclick="setCategory('maps')" class="category-card" id="cat-other">
+            <div class="category-glow amber"></div>
+            <div class="category-icon amber">
+			
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+            </div>
+            <h4 class="category-title">Мапи і довідники</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+		  <div onclick="setCategory('biznes')" class="category-card" id="cat-other">
+            <div class="category-glow teal"></div>
+            <div class="category-icon teal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>
+            </div>
+            <h4 class="category-title">Бізнес</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+		  
+		  <div onclick="setCategory('corup')" class="category-card" id="cat-other">
+            <div class="category-glow gray"></div>
+            <div class="category-icon gray">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+            </div>
+            <h4 class="category-title">Повідомити про корупцію</h4>
+            
+            <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </div>
+
+        <!-- БЛОК С СЕРВИСАМИ (меняется) -->
+        <div id="services-container">
+          <!-- Главные сервисы по умолчанию -->
+          <div id="main-services-view">
+            <h3 class="section-title">
+              <span class="section-title-bar purple"></span>
+              Популярне
+            </h3>
+            <div id="main-services-grid" class="services-grid"></div>
+          </div>
+
+          <!-- Сервисы категории (скрыто по умолчанию) -->
+          <div id="category-services-view" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+              <h3 class="section-title" style="margin-bottom: 0;">
+                <span class="section-title-bar purple"></span>
+                <span id="category-title">Послуги</span>
+              </h3>
+              <button onclick="goBackToMain()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem; transform: rotate(180deg);"><path d="m9 18 6-6-6-6"/></svg>
+                Назад
+              </button>
+            </div>
+            <div id="category-services-grid" class="services-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="search-view" style="display: none;">
+        <h3 class="section-title">
+          <span class="section-title-bar purple"></span>
+          Результати пошуку (<span id="search-count">0</span>)
+        </h3>
+        <div id="search-results-grid" class="services-grid"></div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-blur-1"></div>
+    <div class="footer-blur-2"></div>
+    <div class="footer-accent"></div>
+    
+    <div class="footer-content">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <div class="footer-logo-icon">Д</div>
+              <span class="footer-logo-text">Дніпро</span>
+            </div>
+            <p class="footer-tagline">
+              Дніпровська міська рада<br>
+              офіційний вебсайт
+            </p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Гаряча лінія</h4>
+            <p>
+              Цілодобова<br>
+              єдина гаряча лінія<br>
+              для звернень громадян
+            </p>
+            <div class="footer-phones">
+              <a href="tel:+380567321212">+380 (56) 732 12 12</a>
+              <span class="separator">·</span>
+              <a href="tel:+380957321212">+380 (95) 732 12 12</a>
+            </div>
+            <div class="footer-phones">
+              <a href="tel:+380967321212">+380 (96) 732 12 12</a>
+              <span class="separator">·</span>
+              <a href="tel:+380737321212">+380 (73) 732 12 12</a>
+            </div>
+            <a href="mailto:zvernennya@dmr.dp.ua" class="footer-email">zvernennya@dmr.dp.ua</a>
+          </div>
+          
+          <div class="footer-section footer-contacts">
+            <h4>Контакти</h4>
+            <p class="footer-address">
+              49000, м. Дніпро,<br>
+              просп. Дмитра Яворницького, 75
+            </p>
+            <div class="footer-contact-emails">
+              <a href="mailto:office@dniprorada.gov.ua">office@dniprorada.gov.ua</a>
+              <a href="mailto:office@dmr.dp.ua">office@dmr.dp.ua</a>
+            </div>
+            <div class="social-links">
+              <a href="https://www.facebook.com/daborys.filatov" target="_blank" class="social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://twitter.com/Aborys" target="_blank" class="social-link" aria-label="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/borys_filatov" target="_blank" class="social-link" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright">© 2026 Дніпровська міська рада. Всі права захищено.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const servicesData = {
+      mainSections: [
+        { id: "city-council", title: "Дніпровська міська рада", description: "Пошук та перегляд документів міської ради, доступ до відкритих даних та інформації про бюджет міста, перегляд сесій міської ради", link: "https://dniprorada.gov.ua" },
+        { id: "ednipro", title: "«єДніпро»", description: "Єдиний міський мобільний додаток для мешканців Дніпра, який об'єднує міські сервіси", link: "https://ednipro.dp.ua", platforms: ["Google Play", "App Store"] },
+        { id: "safe-city", title: "Безпечне місто", description: "Ситуаційний центр 24/7, отримання відео з камер", link: "https://safecity.dp.ua" },
+        { id: "contact-center", title: "Контакт-Центр м. Дніпра", description: "Система приймання та обробки звернень громадян", link: "https://contact.dp.ua" },
+        { id: "edem", title: "E-DEM", description: "Єдина система місцевих петицій. Платформа електронної демократії", link: "https://e-dem.dp.ua" },
+        { id: "open-data", title: "Портал відкритих даних м. Дніпра", description: "Вебпортал відкритих даних міської ради", link: "https://opendata.dniprorada.gov.ua" },
+        { id: "development-agency", title: "Агенство розвитку м. Дніпра", description: "Проєкти агентства, інвестиційні можливості", link: "https://invest.dp.ua" }
+      ],
+      categories: [
+        { id: "education", title: "Освіта", services: [
+          { id: "nmt", title: "Національне тестування", description: "Онлайн-платформа підготовки учнів", link: "https://zno.testportal.com.ua" },
+          { id: "mybook", title: "MyBook", description: "Безкоштовна онлайн-бібліотека з підручниками", link: "https://lib.imzo.gov.ua" },
+          { id: "online-courses", title: "Онлайн-курси «ЄДніпро»", description: "Платформа освітніх курсів", link: "https://courses.ednipro.dp.ua" },
+          { id: "preschool", title: "Дошкільнятко", description: "Освітні програми та ігри", link: "https://doshkilnyatko.dp.ua" },
+          { id: "edu-trajectory", title: "Освітня траєкторія", description: "Професійний розвиток освітян", link: "https://trajectory.osvita.dp.ua" },
+          { id: "osvita-dp", title: "Освіта Дніпра", description: "Школи, садочки, учнівський квиток", link: "https://osvita.dp.ua" }
+        ]},
+        { id: "services", title: "Послуги", services: [
+          { id: "cnap", title: "ЦНАП м. Дніпра", description: "Адміністративні послуги онлайн", link: "https://cnap.dp.ua" },
+          { id: "e-queue", title: "Електронна черга", description: "Запис до ЦНАП", link: "https://queue.cnap.dp.ua" },
+          { id: "ritual", title: "Ритуальні послуги", description: "Реєстрація місця поховання", link: "https://ritual.dp.ua" },
+          { id: "social", title: "Дніпро Соціальний", description: "Соціальні послуги міста", link: "https://social.dp.ua" }
+        ]},
+        { id: "medicine", title: "Медицина", services: [
+          { id: "doctors-247", title: "Лікарі 24/7", description: "Онлайн-запис до лікаря", link: "https://doctors247.dp.ua" },
+          { id: "helsi", title: "Helsi.me", description: "Електронна медична система", link: "https://helsi.me" }
+        ]},
+        { id: "transport", title: "Транспорт", services: [
+          { id: "dte", title: "Електротранспорт", description: "Розклад руху та тарифи", link: "https://dte.dp.ua" },
+          { id: "parking", title: "Паркування", description: "Контроль та оплата паркування", link: "https://parking.dp.ua" },
+          { id: "unip", title: "UNIP", description: "Мобільна оплата паркування", link: "https://unip.ua" }
+        ]},
+        { id: "war", title: "Підтримка під час війни", services: [
+          { id: "war1", title: "Програма допомоги від держави «єВідновлення»", description: "", link: "https://war.dp.ua" },
+          { id: "war2", title: "Програма допомоги від міста", description: "", link: "https://war.dp.ua" },
+          { id: "war3", title: "Внутрішньо переміщеним особам", description: "", link: "https://war.dp.ua" },
+		  { id: "war4", title: "Підтримка ветеранів та їх сімей", description: "", link: "https://war.dp.ua" },
+		  { id: "war5", title: "«Родина Героя»", description: "", link: "https://war.dp.ua" },
+		  { id: "war6", title: "Співфінансування проєктів на допомогу силам безпеки і оборони України", description: "", link: "https://war.dp.ua" },
+		  { id: "war7", title: "Форпост Дніпро", description: "", link: "https://war.dp.ua" },
+        ]}
+      ]
+    };
+
+    function createServiceCard(s) {
+      return `
+        <a href="${s.link}" target="_blank" class="service-card" onclick="if(this.getAttribute('href') === '#') { event.preventDefault(); return false; }">
+          <div class="service-header">
+            <div style="flex: 1;">
+              <h4 class="service-title">${s.title}</h4>
+              ${s.platforms ? `<div class="platforms-list">${s.platforms.map(p => `<span class="platform-badge">${p}</span>`).join('')}</div>` : ''}
+              <p class="service-description">${s.description || ''}</p>
+            </div>
+            <svg class="service-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderMain() {
+      const grid = document.getElementById('main-services-grid');
+      grid.innerHTML = servicesData.mainSections.map(createServiceCard).join('');
+      
+      // Update counts
+      servicesData.categories.forEach(c => {
+        const el = document.getElementById(`count-${c.id}`);
+        if (el) el.textContent = `${c.services.length} сервісів`;
+      });
+      
+      const total = servicesData.mainSections.length + servicesData.categories.reduce((acc, c) => acc + c.services.length, 0);
+      document.getElementById('stat-services').textContent = total;
+    }
+
+    function setCategory(id) {
+      const cat = servicesData.categories.find(c => c.id === id);
+      if (!cat) return;
+
+      // Показываем сервисы категории, скрываем главные
+      document.getElementById('main-services-view').style.display = 'none';
+      document.getElementById('category-services-view').style.display = 'block';
+      document.getElementById('category-title').textContent = cat.title;
+      document.getElementById('category-services-grid').innerHTML = cat.services.map(createServiceCard).join('');
+      
+      // Подсвечиваем активную категорию
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      document.getElementById(`cat-${id}`).classList.add('active');
+    }
+
+    function goBackToMain() {
+      // Показываем главные сервисы, скрываем категорию
+      document.getElementById('main-services-view').style.display = 'block';
+      document.getElementById('category-services-view').style.display = 'none';
+      
+      // Убираем подсветку категорий
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      
+      document.getElementById('search-input').value = '';
+    }
+
+    function goBack() {
+      // Оставляем только для поиска (если нужно)
+      document.getElementById('home-view').style.display = 'block';
+      document.getElementById('search-view').style.display = 'none';
+      document.getElementById('search-input').value = '';
+    }
+
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      if (!query) {
+        goBackToMain(); // Используем новую функцию
+        return;
+      }
+
+      // Скрываем ВСЕ сервисные блоки, показываем поиск
+      document.getElementById('main-services-view').style.display = 'none';
+      document.getElementById('category-services-view').style.display = 'none';
+      document.getElementById('search-view').style.display = 'block';
+
+      const all = [
+        ...servicesData.mainSections,
+        ...servicesData.categories.flatMap(c => c.services)
+      ];
+
+      const filtered = all.filter(s => 
+        s.title.toLowerCase().includes(query) || 
+        (s.description && s.description.toLowerCase().includes(query))
+      );
+
+      document.getElementById('search-count').textContent = filtered.length;
+      document.getElementById('search-results-grid').innerHTML = filtered.length 
+        ? filtered.map(createServiceCard).join('')
+        : '<div style="grid-column: 1/-1; padding: 3rem; text-align: center; color: var(--text-muted);">Нічого не знайдено</div>';
+    });
+
+    renderMain();
+  </script>
+</body>
+</html>
