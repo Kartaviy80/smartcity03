@@ -491,7 +491,7 @@
     
     .footer-logo-icon {
       width: 40px; height: 40px;
-      border: 2px solid #fff;
+      
       border-radius: 0.5rem;
       display: flex;
       align-items: center;
@@ -586,6 +586,46 @@
   src: url('fonts/DniproCity-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+.service-card[href*="https://ednipro.dniprorada.gov.ua/"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+.service-card[href*="https://inforada.github.io/safecity/"] {
+  background: linear-gradient(to bottom right, #ef4444, #ea580c);
+}
+
+.service-card[href*="https://hotline.dniprorada.gov.ua/"] {
+  background: linear-gradient(to bottom right, #22c55e, #14b8a6);
+}
+
+.service-card[href*="https://dniprotransparentcities.github.io/shelter/"] {
+  background: linear-gradient(to bottom right, #eab308, #f59e0b);
+}
+
+.service-card[href*="https://dniprotransparentcities.github.io/InvincibilityPoints/"] {
+  background: linear-gradient(to bottom right, #10b981, #22c55e);
+}
+
+.service-card[href*="https://dniprorada.gov.ua/uk/page/dokumenti-miskoi-radi#gsc.tab=0"] {
+  background: linear-gradient(to bottom right, #a855f7, #6366f1);
+}
+
+.service-card[href*="https://gromada.dniprorada.gov.ua/"] {
+  background: linear-gradient(to bottom right, #ec4899, #f43f5e);
+}
+
+.service-card[href*="https://dniprorada.gov.ua/uk/page/povidomiti-pro-korupciyu#gsc.tab=0"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://rada.dniprorada.gov.ua/"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+.service-card[href*="https://data.dniprorada.gov.ua/"] {
+    background: linear-gradient(to bottom right, #eab308, #f59e0b);
 }
   </style>
 </head>
@@ -829,12 +869,12 @@
         <div class="footer-grid">
           <div>
             <div class="footer-logo">
-              <div class="footer-logo-icon">Д</div>
+              <div><img class="footer-logo-icon" src="gerb.png"></div>
               <span class="footer-logo-text">Дніпро</span>
             </div>
             <p class="footer-tagline">
               Дніпровська міська рада<br>
-              офіційний вебсайт
+              офіційний веб-сайт
             </p>
           </div>
           
@@ -902,7 +942,7 @@
 		
 		{ id: "mapa-ukrttiv", title: "Мапа укриттів", description: "Швидкий пошук найближчого сховища", link: "https://dniprotransparentcities.github.io/shelter/" },
 		
-		{ id: "mapa-punctiv", title: "Мапа пунктів незламності", description: "ШЗнайти локацію поруч за кілька кліків", link: "https://dniprotransparentcities.github.io/InvincibilityPoints/" },
+		{ id: "mapa-punctiv", title: "Мапа пунктів незламності", description: "Знайти локацію поруч за кілька кліків", link: "https://dniprotransparentcities.github.io/InvincibilityPoints/" },
 		
 		{ id: "city-council", title: "Документи міської ради", description: "Пошук проєктів та прийнятих документів", link: "https://dniprorada.gov.ua/uk/page/dokumenti-miskoi-radi#gsc.tab=0" },
 		
