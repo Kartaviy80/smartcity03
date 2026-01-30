@@ -425,13 +425,14 @@
       background: rgba(255,255,255,0.1);
       border-color: rgba(34, 211, 238, 0.3);
       box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+	  transform: translateY(-4px);
     }
     
     .service-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .service-title { font-weight: 600; margin-bottom: 0.25rem; }
     .service-description { font-size: 0.875rem; color: var(--text-muted); }
     .service-arrow { color: rgba(255,255,255,0.2); flex-shrink: 0; }
-    .service-card:hover .service-title { color: var(--cyan); }
+    
     .service-card:hover .service-arrow { color: var(--cyan); }
 
     .platforms-list { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
@@ -587,7 +588,7 @@
   font-weight: normal;
   font-style: normal;
 }
-
+ /* Popular */
 .service-card[href*="https://ednipro.dniprorada.gov.ua/"] {
   background: linear-gradient(to bottom right, #2563eb, #1e40af);
 }
@@ -626,6 +627,74 @@
 
 .service-card[href*="https://data.dniprorada.gov.ua/"] {
     background: linear-gradient(to bottom right, #eab308, #f59e0b);
+}
+
+ /* Osvita */
+
+.service-card[href*="https://zno.testportal.com.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://lib.imzo.gov.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://courses.ednipro.dp.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://doshkilnyatko.dp.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://trajectory.osvita.dp.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+.service-card[href*="https://osvita.dp.ua"] {
+  background: linear-gradient(to bottom right, #06b6d4, #2563eb); 
+}
+
+/* services */
+
+.service-card[href*="https://cnap.dp.ua"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+.service-card[href*="https://queue.cnap.dp.ua"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+.service-card[href*="https://ritual.dp.ua"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+.service-card[href*="https://social.dp.ua"] {
+  background: linear-gradient(to bottom right, #2563eb, #1e40af);
+}
+
+/* medicine */
+
+.service-card[href*="https://doctors247.dp.ua"] {
+  background: linear-gradient(to bottom right, #22c55e, #14b8a6);
+}
+
+.service-card[href*="https://helsi.me"] {
+  background: linear-gradient(to bottom right, #22c55e, #14b8a6);
+}
+
+/* transport */
+
+.service-card[href*="https://dte.dp.ua"] {
+  background: linear-gradient(to bottom right, #eab308, #f59e0b);
+}
+
+.service-card[href*="https://parking.dp.ua"] {
+  background: linear-gradient(to bottom right, #eab308, #f59e0b);
+}
+
+.service-card[href*="https://unip.ua"] {
+  background: linear-gradient(to bottom right, #eab308, #f59e0b);
 }
   </style>
 </head>
@@ -959,7 +1028,7 @@
         { id: "education", title: "Освіта", services: [
           { id: "nmt", title: "Національне тестування", description: "Онлайн-платформа підготовки учнів", link: "https://zno.testportal.com.ua" },
           { id: "mybook", title: "MyBook", description: "Безкоштовна онлайн-бібліотека з підручниками", link: "https://lib.imzo.gov.ua" },
-          { id: "online-courses", title: "Онлайн-курси «ЄДніпро»", description: "Платформа освітніх курсів", link: "https://courses.ednipro.dp.ua" },
+          { id: "online-courses", title: "Онлайн-курси «єДніпро»", description: "Платформа освітніх курсів", link: "https://courses.ednipro.dp.ua" },
           { id: "preschool", title: "Дошкільнятко", description: "Освітні програми та ігри", link: "https://doshkilnyatko.dp.ua" },
           { id: "edu-trajectory", title: "Освітня траєкторія", description: "Професійний розвиток освітян", link: "https://trajectory.osvita.dp.ua" },
           { id: "osvita-dp", title: "Освіта Дніпра", description: "Школи, садочки, учнівський квиток", link: "https://osvita.dp.ua" }
