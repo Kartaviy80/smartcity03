@@ -12,7 +12,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
      :root {
-      --bg: #020617;
+      --bg: #06162D;
       --card: rgba(255,255,255,0.05);
       --border: rgba(255,255,255,0.1);
       --text: #ffffff;
@@ -24,7 +24,7 @@
     
     body {
       font-family: DniproCity-Bold;
-      background: linear-gradient(to bottom right, #0d214f, #78818d, #e0cfb1);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
@@ -175,16 +175,16 @@
       gap: 0.5rem;
       padding: 0.875rem 1.5rem;
       border-radius: 12px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      color: #334155;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: #fff;
       font-weight: 600;
       transition: all 0.3s;
       cursor: pointer;
     }
     
     .btn-secondary:hover {
-      background: #f1f5f9;
+      background:  var(--card);
       border-color: #cbd5e1;
     }
     
@@ -600,13 +600,16 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="hero-badge"><a href="https://drive.google.com/file/d/1Dq7AUKd7aO9ad3QgfBeQcEyjT5ynPU6z/view?usp=sharing">Про Дніпро</a></div>
+          <div class="hero-badge"><a href="pdf1.pdf">Про Дніпро</a></div>
           <h2 class="hero-title">
             <span class="hero-title-light">Дніпро</span><br>
             <span class="hero-title-gradient">СМАРТ СІТІ</span>
           </h2>
           <p class="hero-description">Платформа міських сервісів для взаємодії з громадою</p>
-          
+          <div class="hero-buttons">
+            <a href="https://ednipro.dniprorada.gov.ua" target="_blank" class="btn-primary">Завантажити єДніпро</a>
+            <a href="https://dniprorada.gov.ua/uk#gsc.tab=0" target="_blank" class="btn-secondary">Дніпровська міська рада</a>
+          </div>
         </div>
         <div class="stats-grid">
           <div class="stat-item">
@@ -652,7 +655,7 @@
         <!-- КАТЕГОРИИ (всегда видны) -->
         <h3 class="section-title">
           <span class="section-title-bar cyan"></span>
-          Категорії послуг
+          Категорії
         </h3>
         <div class="category-grid" id="category-container">
 		
@@ -772,7 +775,7 @@
     <circle cx="12" cy="12" r="3"/>
   </svg>
             </div>
-            <h4 class="category-title">Повідомити про корупцію</h4>
+            <h4 class="category-title">Інвесторам</h4>
             
             <svg class="category-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </div>
@@ -891,13 +894,26 @@
   <script>
     const servicesData = {
       mainSections: [
-        { id: "city-council", title: "Дніпровська міська рада", description: "Пошук та перегляд документів міської ради, доступ до відкритих даних та інформації про бюджет міста, перегляд сесій міської ради", link: "https://dniprorada.gov.ua" },
-        { id: "ednipro", title: "«єДніпро»", description: "Єдиний міський мобільний додаток для мешканців Дніпра, який об'єднує міські сервіси", link: "https://ednipro.dp.ua", platforms: ["Google Play", "App Store"] },
-        { id: "safe-city", title: "Безпечне місто", description: "Ситуаційний центр 24/7, отримання відео з камер", link: "https://safecity.dp.ua" },
-        { id: "contact-center", title: "Контакт-Центр м. Дніпра", description: "Система приймання та обробки звернень громадян", link: "https://contact.dp.ua" },
-        { id: "edem", title: "E-DEM", description: "Єдина система місцевих петицій. Платформа електронної демократії", link: "https://e-dem.dp.ua" },
-        { id: "open-data", title: "Портал відкритих даних м. Дніпра", description: "Вебпортал відкритих даних міської ради", link: "https://opendata.dniprorada.gov.ua" },
-        { id: "development-agency", title: "Агенство розвитку м. Дніпра", description: "Проєкти агентства, інвестиційні можливості", link: "https://invest.dp.ua" }
+        { id: "ednipro", title: "«єДніпро»", description: "Усі міські сервіси в одному мобільному застосунку", link: "https://ednipro.dniprorada.gov.ua/", platforms: ["Google Play", "App Store"] },
+		
+		{ id: "safe-city", title: "Безпечне місто", description: "Моніторинг 24/7, запит на відео з камер спостереження Ситуаційного центру Дніпра", link: "https://inforada.github.io/safecity/" },
+		
+        { id: "contact-center", title: "Контакт-Центр міста Дніпра", description: "Єдина система звернень щодо аварійних ситуацій", link: "https://hotline.dniprorada.gov.ua/" },
+		
+		{ id: "mapa-ukrttiv", title: "Мапа укриттів", description: "Швидкий пошук найближчого сховища", link: "https://dniprotransparentcities.github.io/shelter/" },
+		
+		{ id: "mapa-punctiv", title: "Мапа пунктів незламності", description: "ШЗнайти локацію поруч за кілька кліків", link: "https://dniprotransparentcities.github.io/InvincibilityPoints/" },
+		
+		{ id: "city-council", title: "Документи міської ради", description: "Пошук проєктів та прийнятих документів", link: "https://dniprorada.gov.ua/uk/page/dokumenti-miskoi-radi#gsc.tab=0" },
+		
+        { id: "edem", title: "Електронні звернення", description: "", link: "https://gromada.dniprorada.gov.ua/" },
+		
+		{ id: "corup", title: "Повідомити про корупцію", description: "", link: "https://dniprorada.gov.ua/uk/page/povidomiti-pro-korupciyu#gsc.tab=0" },
+		
+		{ id: "development-agency", title: "Онлайн реєстрація на сесію міської ради", description: "", link: "https://rada.dniprorada.gov.ua/" },
+		
+        { id: "open-data", title: "Портал відкритих даних", description: "", link: "https://data.dniprorada.gov.ua/" }
+		
       ],
       categories: [
         { id: "education", title: "Освіта", services: [
